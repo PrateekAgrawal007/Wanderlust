@@ -1,0 +1,121 @@
+<style>
+  .search-btn {
+    background-color: #fe424d;
+    color: white;
+    border-radius: 25px;
+    padding: 0 1rem 0 1rem;
+  }
+
+  .search-btn:hover {
+    background-color: #fe424d;
+    color: white;
+  }
+  .navbar-brand i {
+    margin-left: 10px;
+  }
+
+  .navbar-nav .nav-link {
+    color: black;
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 0.5rem 1rem;
+    border-radius: 0.25rem;
+    margin: 0.2rem;
+    transition: background-color 0.3s, color 0.3s;
+  }
+
+  .navbar-nav .nav-link:hover {
+    background-color: #fe424d;
+    color: white;
+  }
+  .navbar-nav .wanderlust {
+    color: #fe424d !important;
+    font-size: 1.25rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+  }
+
+  .navbar-nav .wanderlust:hover {
+    background-color: transparent !important;
+    text-decoration: none;
+    color: #fe424d;
+  }
+
+  .animated-placeholder {
+    font-style: italic;
+    font-size: 1rem;
+    color: gray;
+    animation: fade 2s infinite;
+    display: none;
+  }
+
+  @keyframes fade {
+    0%,
+    100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.5;
+    }
+  }
+
+  @media (min-width: 763px) {
+    .animated-placeholder {
+      display: block;
+    }
+  }
+
+  @media (max-width: 576px) {
+    .navbar-collapse.show .navbar-nav {
+      text-align: center;
+      width: 100%;
+    }
+
+    .navbar-collapse.show .navbar-nav .nav-link {
+      display: block;
+      width: 100%;
+    }
+  }
+</style>
+
+<nav class="navbar navbar-expand-md bg-body-light border-bottom sticky-top">
+  <div class="container-fluid">
+    <!-- Brand -->
+    <a class="navbar-brand" href="/listings">
+      <i class="fa-regular fa-compass"></i>
+    </a>
+
+    <!-- Toggler button for small devices -->
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarNavAltMarkup"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- Navbar Content -->
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <!-- Left-side Links -->
+      <div class="navbar-nav">
+        <a class="nav-link wanderlust" href="/listings"> <b>Wanderlust</b></a>
+      </div>
+
+      <!-- Centered Animated Placeholder -->
+      <div class="navbar-nav mx-auto">
+        <div class="animated-placeholder">Search Coming Soon!</div>
+      </div>
+
+      <!-- Right-side Links -->
+      <div class="navbar-nav ms-auto text-center">
+        <a class="nav-link" href="/listings/new">Host Your Space</a>
+        <% if (!currUser) { %>
+        <a class="nav-link" href="/signup"><b>Sign Up</b></a>
+        <a class="nav-link" href="/login"><b>Log in</b></a>
+        <% } %> <% if (currUser) { %>
+        <a class="nav-link" href="/logout"><b>Log out</b></a>
+        <% } %>
+      </div>
+    </div>
+  </div>
+</nav>
